@@ -18,7 +18,7 @@ app.get('/home', (req, res) => {
   res.send('Welcome to the server!');
 });
 app.use("/api/v1/user", userRoutes);
-// app.use("/", googleAuth);
+app.use("/", googleAuth);
 
 app.listen(process.env.PORT, () => {
   console.log(`Server is running on port ${process.env.PORT}`);
