@@ -59,24 +59,6 @@ const isAdminCheck = (req,res,next) => {
         return res.status(500).json({sucess:false,message:"Server error"});
     }
 }
-// const isAdminCheck = (req, res, next) => {
-//     try {
-//         if (req?.user?.role === "Admin") {
-//             next();
-//         }
-//         else {
-//             return res.status(401).json({
-//                 success: false,
-//                 message: "You are not allowed to perform this operation."
-//             })
-//         }
-//     } catch (err) {
-//         res.status(500).json({
-//             success: false,
-//             message: "Server Error"
-//         })
-//     }
-// }
 
 
 module.exports = {verifyAccessToken,generateRefreshToken,generateAccessToken,isAdminCheck};
