@@ -1,9 +1,10 @@
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const UserModel = require("../models/userModel");
-const refreshTokenModel = require("../models/refreshTokenSchema");
-const generateAccessToken = require("../helper/generateAccessToken");
-const generateRefreshToken = require("../helper/generateRefreshToken");
+const refreshTokenModel = require("../models/refreshTokenSchema")
+const {generateAccessToken,generateRefreshToken} = require("../helper/utilies");
+// const generateAccessToken = require("../helper/utiles/generateAccessToken");
+// const generateRefreshToken = require("../helper/generateRefreshToken");
 const userValidationSchema = require("../helper/userValidationSchema");
 const { isValidEmail, isValidMobileNumber } = require("../helper/vaild");
 
@@ -19,7 +20,7 @@ class UserController {
           .json({ success: false, message: error.details[0].message });
       }
 
-      const { userName, firstName, lastName, email, password, mobile } = value;
+      const { userName, firstName, lastName, email, password, mobile,role } = value;
 
       if (!isValidEmail(email)) {
         return res
@@ -47,6 +48,7 @@ class UserController {
         email,
         password: hashedPassword,
         mobile,
+        role
       });
 
       await newUser.save();
@@ -85,6 +87,10 @@ class UserController {
       const resultRefreshToken = await refreshTokenModel.create({
         token: newRefreshToken,
       });
+      // const resultRefreshToken = new refreshTokenModel({
+      //   token: newRefreshToken,
+      // });
+      // await resultRefreshToken.save();
       return res.status(200).json({ resultRefreshToken, token, user });
     } catch (err) {
       console.error(err);

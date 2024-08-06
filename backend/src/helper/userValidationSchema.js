@@ -12,4 +12,6 @@ const userValidationSchema = Joi.object({
     .optional(),
 });
 
+
+
 module.exports = userValidationSchema;

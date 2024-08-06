@@ -3,8 +3,8 @@ const axios = require("axios");
 const router = express.Router();
 const UserModel = require("../models/userModel");
 const refreshTokenModel = require("../models/refreshTokenSchema");
-const generateAccessToken = require("../helper/generateAccessToken");
-const generateRefreshToken = require("../helper/generateRefreshToken");
+const {generateAccessToken,generateRefreshToken} = require("../helper/utilies");
+// const generateRefreshToken = require("../helper/generateRefreshToken");
 
 
 
