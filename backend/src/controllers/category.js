@@ -96,7 +96,7 @@ class CategoryController {
                 description,
                 material
             });
-            console.log(updateCategory);
+            // console.log(updateCategory);
             return res.status(200).json({success:true,message:"Update the category successfully"})
 
         }

@@ -11,6 +11,7 @@ routes.get("/cat", async (req, res) => {
 routes.get("/",category.getAllCategory);
 routes.get("/:categoryId",category.getCategoryById);
 
+// admin routes
 routes.post("/add",verifyAccessToken,isAdminCheck,category.createCategory);
 routes.delete("/delete/:categoryId" ,verifyAccessToken,isAdminCheck, category.deleteCategoryById);
 routes.put("/update/:categoryId" , verifyAccessToken,isAdminCheck,category.updateCategoryById);

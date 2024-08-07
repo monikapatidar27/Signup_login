@@ -6,6 +6,7 @@ const app = express();
 
 const dbConnection = require("./database/dbConnection.js");
 const userRoutes = require("./src/routes/userRoutes.js");
+const productRoutes = require("./src/routes/productRoutes.js")
 const categoryRoutes = require("./src/routes/categoryRoutes.js")
 const googleAuth = require("./src/controllers/googleAuth.js")
 dotenv.config();
@@ -22,7 +23,7 @@ app.get('/home', (req, res) => {
 app.use("/api/v1/user", userRoutes);
 app.use("/", googleAuth);
 app.use("/api/v1/category" , categoryRoutes);
-
+app.use("/api/v1/product" , productRoutes);
 
 app.listen(process.env.PORT, () => {
   console.log(`Server is running on port ${process.env.PORT}`);
