@@ -9,13 +9,13 @@ import Test from './components/test'
 function App() {
   return (
     // <h1 class='text-3xl font-bold underline text-teal-600'>Welcome</h1>
-    <Test/>
+    // <Test/>
     // <HomePage/>
-    // <Routes>
-    //   <Route path="/" element={<HomePage />} />
-    //   <Route path="/login" element={<Login />} />
-    //   <Route path="/signup" element={<SignUp />} />
-    // </Routes>
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="/signup" element={<SignUp />} />
+    </Routes>
   );
 }
 

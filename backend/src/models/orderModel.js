@@ -1,20 +1,22 @@
 const mongoose = require("mongoose");
-const userModel = require("./userModel")
+const userModel = require("./userModel");
+const productModel = require("./productModel");
 
 const orderSchema = new mongoose.Schema({
-    orderNumber: {
-        type: String,
-        unique: true
-    },
     userId: {
         type: mongoose.Schema.Types.ObjectId,
         required: true,
         ref: userModel
     },
+    productId: {
+        type: mongoose.Schema.Types.ObjectId,
+        required: true,
+        ref: productModel
+    },
     orderStatus: {
         type: String,
-        enum: ["Initiated", "Confirmed", "Shipped", "Completed", "Cancelled", "Exchanged"],
-        default: "Initiated", 
+        enum: ["Pending", "Processing", "Completed"],
+        default: "Pending", 
     },
    
 

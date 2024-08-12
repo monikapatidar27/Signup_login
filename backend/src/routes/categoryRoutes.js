@@ -1,4 +1,5 @@
 const category = require("../controllers/category");
+const product = require("../controllers/product");
 const {verifyAccessToken,isAdminCheck} = require("../helper/utilies")
 const routes = require("express").Router();
 
@@ -10,6 +11,7 @@ routes.get("/cat", async (req, res) => {
 
 routes.get("/",category.getAllCategory);
 routes.get("/:categoryId",category.getCategoryById);
+
 
 // admin routes
 routes.post("/add",verifyAccessToken,isAdminCheck,category.createCategory);
