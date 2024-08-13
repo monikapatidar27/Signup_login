@@ -2,6 +2,12 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const dotenv = require("dotenv");
 const cors = require("cors");
+
+
+const swaggerUi = require('swagger-ui-express');
+const swaggerSpec = require('./swagger');
+
+
 const app = express();
 
 const dbConnection = require("./database/dbConnection.js");
@@ -16,6 +22,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 dbConnection();
 
+// swagger connection
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 app.get('/home', (req, res) => {
   res.send('Welcome to the server!');
