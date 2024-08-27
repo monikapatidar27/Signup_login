@@ -140,6 +140,21 @@ router.post('/refresh', user.userTokenRefresh);
  */
 router.post('/logout', user.logout);
 
+
+/**
+ * @swagger
+ * /api/v1/user:
+ *   get:
+ *     summary: Get all users
+ *     tags: [Users]
+ *     responses:
+ *       200:
+ *         description: A list of users
+ *       500:
+ *         description: Server error
+ */
+router.get('/', user.getUser);
+
 module.exports = router;
 
 

@@ -101,7 +101,7 @@ router.get('/:catgoryId', category.getCategoryById);
  *       500:
  *         description: Server error
  */
-router.delete('/:categoryId',verifyAccessToken,isAdminCheck, category.deleteCategoryById);
+router.delete('/delete/:categoryId',verifyAccessToken,isAdminCheck, category.deleteCategoryById);
 
 /**
  * @swagger
@@ -141,7 +141,7 @@ router.delete('/:categoryId',verifyAccessToken,isAdminCheck, category.deleteCate
  *       500:
  *         description: Server error
  */
-router.put('/:categoryId',verifyAccessToken,isAdminCheck, category.updateCategoryById);
+router.put('/update/:categoryId',verifyAccessToken,isAdminCheck, category.updateCategoryById);
 
 module.exports = router;
 

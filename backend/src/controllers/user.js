@@ -173,7 +173,17 @@ class UserController {
     }
   }
 
-  
+  async getUser (req,res) {
+    try {
+      const allUser = await UserModel.find();
+      console.log(allUser);
+      return res.status(200).json({success:true,result:{message:allUser}})
+    }
+    catch(err){
+      console.log(err);
+      return res.status(500).json({success:"fail" ,result:{message:"Unable to logout at that moment."}})
+    }
+  }
   
   
 }
