@@ -16,6 +16,7 @@ const productRoutes = require("./src/routes/productRoutes.js");
 const orderRoutes = require("./src/routes/orderRoutes.js");
 const categoryRoutes = require("./src/routes/categoryRoutes.js")
 const googleAuth = require("./src/controllers/googleAuth.js")
+const dashBoardRoutes = require("./src/routes/dashBoardRoutes.js")
 const stripe = require("stripe")("sk_test_51O4fQJSAKAhNi8NACJpBDp5lrMeEHLP6N1XE8mc96TpOyjJefxyKK6YS1IA7aCb6TwD2T82rZV4FfDnlQjw1CoLp00wnNGOa1K");
 dotenv.config();
 app.use(cors());
@@ -35,7 +36,7 @@ app.use("/", googleAuth);
 app.use("/api/v1/category" , categoryRoutes);
 app.use("/api/v1/product" , productRoutes);
 app.use("/api/v1/order", orderRoutes);
-
+app.use("/api/v1" , dashBoardRoutes);
 
 
 
